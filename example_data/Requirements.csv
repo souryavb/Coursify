@@ -1,0 +1,16 @@
+requirementID,creditsNeeded,requirementType,corequisites,prerequisites
+1,8,Lab,LAB101,
+2,12,NUpath,REC201,CS2500
+3,4,NUpath,,
+4,8,Lab,REC201,CS2500
+5,3,Capstone,REC201,ECON1115
+6,3,Capstone,REC201,
+7,3,Major Elective,REC201,ECON1115
+8,8,NUpath,,MATH1341
+9,3,Major Elective,,MATH1341
+10,4,Capstone,LAB101,
+11,8,Major Core,,CS2500
+12,4,Major Core,LAB101,ECON1115
+13,4,NUpath,,
+14,4,Major Elective,REC201,
+15,8,Major Core,LAB101,

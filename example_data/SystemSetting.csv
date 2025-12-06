@@ -1,0 +1,6 @@
+settingKey,settingValue,description
+max_credits_per_term,20,System setting for max credits per term
+min_gpa_to_enroll_overload,3.5,System setting for min gpa to enroll overload
+override_approval_email,overrides@coursify.edu,System setting for override approval email
+catalog_last_refresh,2025-12-06,System setting for catalog last refresh
+term_planning_window_days,365,System setting for term planning window days
