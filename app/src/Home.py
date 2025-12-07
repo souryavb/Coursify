@@ -79,8 +79,8 @@ if st.button('Act as Data Analyst',
             type = 'primary', 
             use_container_width=True):
     st.session_state['authenticated'] = True
-    st.session_state['role'] = 'administrator'
-    st.session_state['first_name'] = 'SysAdmin'
+    st.session_state['role'] = 'Data_analyst'
+    st.session_state['first_name'] = 'Joe'
     st.switch_page('pages/40_data_A_Home.py')
 
 
