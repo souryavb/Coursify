@@ -8,6 +8,7 @@ from backend.db_connection import db
 from backend.simple.simple_routes import simple_routes
 from backend.ngos.ngo_routes import ngos
 from backend.data.data_routes import data
+from backend.professors.professor_routes import professors
 
 def create_app():
     app = Flask(__name__)
@@ -55,6 +56,7 @@ def create_app():
     app.register_blueprint(ngos, url_prefix="/ngo")
     app.register_blueprint(data, url_prefix="/d")
 
+    app.register_blueprint(professors, url_prefix='/prof')
 
 
     # Don't forget to return the app object
