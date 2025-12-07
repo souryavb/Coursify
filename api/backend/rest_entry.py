@@ -59,6 +59,7 @@ def create_app():
     app.register_blueprint(plans, url_prefix="/p")
     app.register_blueprint(courses, url_prefix="/c")
     app.register_blueprint(professors, url_prefix='/prof')
+    app.register_blueprint(requirements, url_prefix='/r')
 
 
     # Don't forget to return the app object
