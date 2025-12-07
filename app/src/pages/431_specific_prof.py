@@ -4,6 +4,7 @@ from streamlit_extras.app_logo import add_logo
 from modules.nav import SideBarLinks
 import pandas as pd 
 import plotly.express as px
+import matplotlib.pyplot as plt 
 
 
 prof_id = st.session_state['selected_prof_id']
@@ -50,10 +51,30 @@ if prof:
 
     with tab2: 
         st.dataframe(prof)
-        df = pd.DataFrame([prof['ratings']])
-        st.write(df.values)
-        fig = px.bar(df, x='Rating', y='Count')
-        fig.show()
-        
-        
+
+        # Get all individual ratings (not the summary)
+        ratings_df = pd.DataFrame([prof])  # This has all ratings
+        ratings_df['rating'] = ratings_df['ratings'].astype(float)
+
+        # Count how many of each star rating (1, 2, 3, 4, 5)
+        rating_counts = ratings_df['ratings'].value_counts().sort_index()
+
+        # Ensure all ratings 1-5 exist (even if 0)
+        for i in range(1, 6):
+            if float(i) not in rating_counts.index:
+                rating_counts[float(i)] = 0
+        rating_counts = rating_counts.sort_index()
+
+        # Create bar chart
+        fig = px.bar(
+            x=rating_counts.index,
+            y=rating_counts.values,
+            labels={'x': '⭐ Star Rating', 'y': 'Number of Ratings'},
+            title='Rating Distribution',
+            text=rating_counts.values
+        )
+
+        fig.update_traces(textposition='outside')
+        fig.update_layout(xaxis=dict(tickvals=[1, 2, 3, 4, 5]))
+
         st.plotly_chart(fig, use_container_width=True)
