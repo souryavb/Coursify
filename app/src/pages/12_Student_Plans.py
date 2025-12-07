@@ -7,7 +7,7 @@ st.set_page_config(layout="wide")
 SideBarLinks()
 
 
-BASE_URL = "http://localhost:4000"
+BASE_URL = "http://web-api:4000"
 
 
 st.title("My Degree Plans")
