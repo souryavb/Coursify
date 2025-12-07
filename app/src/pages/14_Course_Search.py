@@ -10,7 +10,7 @@ SideBarLinks()
 st.title("Find Courses")
 
 
-BASE_URL = "http://localhost:4000"
+BASE_URL = "http://web-api:4000"
 
 
 # --- Filters ---
