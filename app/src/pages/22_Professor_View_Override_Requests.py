@@ -5,12 +5,15 @@ from modules.nav import SideBarLinks
 st.set_page_config(layout="wide")
 SideBarLinks()
 
-prof_id = st.session_state.get("user_id", 501)
+crn_id = st.session_state.get("user_id", 101)
+
+if st.button("← Back"):
+    st.switch_page("pages/20_Professor_Home.py")
 
 st.title("Override Requests For My Sections")
 
 base_api = "http://web-api:4000"
-url = f"{base_api}/prof/professors/{prof_id}/overriderequests"
+url = f"{base_api}/prof/professors/{crn_id}/overriderequests"
 resp = requests.get(url)
 
 if resp.status_code != 200:

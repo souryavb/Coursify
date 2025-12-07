@@ -10,11 +10,9 @@ prof_id = st.session_state.get("user_id", 501)
 
 st.title("My Sections")
 
-# (Optional) you can leave this here for later, but we won’t use it in the URL yet
 term = st.selectbox("Select term", ["All", "Fall 2025", "Spring 2026"])
 
-# SIMPLE: no term filter in backend yet
-base_api = "http://web-api:4000"  # service name, not localhost
+base_api = "http://web-api:4000" 
 url = f"{base_api}/prof/professors/{prof_id}/sections"
 
 resp = requests.get(url)
@@ -27,7 +25,7 @@ else:
     if not sections:
         st.info("You are not teaching any sections in this dataset.")
     else:
-        # Filter by selected term (client-side filtering)
+        # Filter by selected term
         if term != "All":
             sections = [s for s in sections if s.get('semester') == term or s.get('term') == term]
         

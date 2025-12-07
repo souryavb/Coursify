@@ -17,6 +17,9 @@ base_api = "http://web-api:4000"
 url = f"{base_api}/prof/overriderequests/{request_id}"
 resp = requests.get(url)
 
+if st.button("← Back"):
+    st.switch_page("pages/22_Professor_View_Override_Requests.py")
+
 if resp.status_code != 200:
     st.error(f"Could not fetch request details (status {resp.status_code})")
     st.stop()
