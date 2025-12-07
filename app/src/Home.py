@@ -68,12 +68,12 @@ if st.button('Act as Data Analyst',
     st.session_state['first_name'] = 'Joe'
     st.switch_page('pages/40_data_A_Home.py')
     
-if st.button('Act as Alice, a Student',
+if st.button('Act as Andrea, a Student',
              type='primary',
              use_container_width=True):
     st.session_state['authenticated'] = True
     st.session_state['role'] = 'student'
-    st.session_state['first_name'] = 'Alice'
+    st.session_state['first_name'] = 'Andrea'
     # match one of the sample students in your DB, e.g. 1001
     st.session_state['user_id'] = 1001
     logger.info("Logging in as Student Persona")

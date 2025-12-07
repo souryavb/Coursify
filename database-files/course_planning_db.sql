@@ -295,7 +295,7 @@ INSERT INTO Requirements (requirementID, creditsNeeded, requirementType, corequi
 
 
 INSERT INTO Student (studentID, mobile, email, credits_completed, year, f_name, l_name, mid_names) VALUES
-(1001, '555-1234', 'alice@example.edu', 30, 2, 'Alice', 'Smith', 'Marie'),
+(1001, '555-1234', 'andrea.silva@example.edu', 30, 2, 'Andrea', 'Silva', NULL),
 (1002, '555-5678', 'bob@example.edu',   90, 4, 'Bob',   'Jones',  NULL);
 
 
@@ -527,7 +527,7 @@ INSERT INTO DataQualityIssue (issueID, issueType, createdAt, status, severity, r
 
 
 INSERT INTO Stu_degr (studentID, programID) VALUES
-(1001, 1),  -- Alice in BS CS
+(1001, 1),  -- Andrea Silva in BS CS
 (1002, 1),  -- Bob in BS CS
 (1002, 2);  -- Bob also in BS DS (double major)
 
@@ -687,13 +687,14 @@ INSERT INTO Stu_degr (studentID, programID) VALUES
 
 
 INSERT INTO StudentPlan (planID, studentID,date_created, plan_name, is_active, expected_grad, programID) VALUES
-(1, 1028, '2025-08-01', 'Alice CS Standard Plan', 1, '2027-05-01', 1),
+(1, 1028, '2025-08-01', 'Andrea Silva CS Standard Plan', 1, '2027-05-01', 1),
 (2, 1029,'2025-08-01', 'Bob DS Accelerated Plan', 1, '2026-12-15', 2);
 
 
 
+
 INSERT INTO StudentPlan (planID, studentID, date_created, plan_name, is_active, expected_grad, programID) VALUES
-(3, 1001, '2025-08-20', 'Alice CS + Extra Electives',    0, '2027-12-15', 1),
+(3, 1001, '2025-08-20', 'Andrea Silva CS + Extra Electives',    0, '2027-12-15', 1),
 (4, 1002, '2025-08-01', 'Bob DS Accelerated Plan',       1, '2026-12-15', 2),
 (5,  1001, '2025-06-20', 'Plan 5 for Student 1001', 1, '2027-05-01', 2),
 (6,  1002, '2025-08-04', 'Plan 6 for Student 1002', 1, '2028-06-01', 2),
