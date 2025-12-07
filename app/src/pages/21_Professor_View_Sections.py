@@ -10,6 +10,10 @@ prof_id = st.session_state.get("user_id", 501)
 
 st.title("My Sections")
 
+if st.button("← Back"):
+    st.switch_page("pages/20_Professor_Home.py")
+
+
 term = st.selectbox("Select term", ["All", "Fall 2025", "Spring 2026"])
 
 base_api = "http://web-api:4000" 
