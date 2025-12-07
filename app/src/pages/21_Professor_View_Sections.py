@@ -15,7 +15,7 @@ term = st.selectbox("Select term", ["All", "Fall 2025", "Spring 2026"])
 
 # SIMPLE: no term filter in backend yet
 base_api = "http://web-api:4000"  # service name, not localhost
-url = f"{base_api}/prof/professors/{prof_id}/sections?term={term}"
+url = f"{base_api}/prof/professors/{prof_id}/sections"
 
 resp = requests.get(url)
 
@@ -23,7 +23,15 @@ if resp.status_code != 200:
     st.error(f"Could not load sections. Status {resp.status_code}")
 else:
     sections = resp.json()
+    
     if not sections:
         st.info("You are not teaching any sections in this dataset.")
     else:
-        st.table(sections)
+        # Filter by selected term (client-side filtering)
+        if term != "All":
+            sections = [s for s in sections if s.get('semester') == term or s.get('term') == term]
+        
+        if not sections:
+            st.info(f"No sections found for {term}.")
+        else:
+            st.table(sections)
