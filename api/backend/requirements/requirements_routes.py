@@ -30,7 +30,7 @@ def get_requirements():
 
 # POST /courses
 # Changes requirements
-@requirements.route("/requirements", methods=["UPDATE"])
+@requirements.route("/requirements", methods=["PUT"])
 def change_requirements(req_id):
 
     data = request.get_json()

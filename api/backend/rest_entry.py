@@ -14,7 +14,7 @@ from backend.requirements.requirements_routes import requirements
 
 def create_app():
     app = Flask(__name__)
-
+    
     app.logger.setLevel(logging.DEBUG)
     app.logger.info('API startup')
 
