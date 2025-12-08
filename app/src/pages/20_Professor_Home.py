@@ -7,7 +7,9 @@ from modules.nav import SideBarLinks
 st.set_page_config(layout='wide')
 SideBarLinks()
 
-# TEMP: hard-code user for demo so other pages work
+if st.button("← Back"):
+    st.switch_page("Home.py")
+
 if "user_id" not in st.session_state:
     st.session_state["user_id"] = 501
 if "first_name" not in st.session_state:
