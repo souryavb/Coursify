@@ -34,52 +34,77 @@ SideBarLinks(show_home=True)
 
 # set the title of the page and provide a simple prompt. 
 logger.info("Loading the Home page of the app")
+
 st.title('Coursify')
 st.write('\n\n')
-# st.write('### Overview:')
-# st.write('\n')
-st.write('#### HI! As which user would you like to log in?')
+st.write('### Welcome! Choose your role to continue:')
+st.write('')
+
+# Create two rows of two columns for a clean grid layout
+col1, col2 = st.columns(2)
 
 # For each of the user personas for which we are implementing
 # functionality, we put a button on the screen that the user 
 # can click to MIMIC logging in as that mock user. 
 
-if st.button('Act as Andrea, a Student',
-             type='primary',
-             use_container_width=True):
-    st.session_state['authenticated'] = True
-    st.session_state['role'] = 'student'
-    st.session_state['first_name'] = 'Andrea'
-    # match one of the sample students in your DB, e.g. 1001
-    st.session_state['user_id'] = 1001
-    logger.info("Logging in as Student Persona")
-    st.switch_page('pages/11_Student_Home.py')
+with col1:
+    with st.container(border=True):
+        st.write('#### 👨‍🎓 Student - Andrea')
+        st.write('Plan courses and track your degree progress')
+        st.write('')
+        if st.button('Act as Andrea, a Student',
+                     type='primary',
+                     use_container_width=True,
+                     key='student'):
+            st.session_state['authenticated'] = True
+            st.session_state['role'] = 'student'
+            st.session_state['first_name'] = 'Andrea'
+            st.session_state['user_id'] = 1001
+            logger.info("Logging in as Student Persona")
+            st.switch_page('pages/11_Student_Home.py')
 
-if st.button('Act as Amelia, a Professor', 
-            type = 'primary', 
-            use_container_width=True):
-    st.session_state['authenticated'] = True
-    st.session_state['role'] = 'professor'
-    st.session_state['first_name'] = 'Amelia'
-    st.switch_page('pages/20_Professor_Home.py')
+with col2:
+    with st.container(border=True):
+        st.write('#### 👨‍🏫 Professor - Amelia')
+        st.write('Manage courses and view student planning data')
+        st.write('')
+        if st.button('Act as Amelia, a Professor', 
+                    type='primary', 
+                    use_container_width=True,
+                    key='professor'):
+            st.session_state['authenticated'] = True
+            st.session_state['role'] = 'professor'
+            st.session_state['first_name'] = 'Amelia'
+            st.switch_page('pages/20_Professor_Home.py')
 
-if st.button('Act as System Administrator', 
-            type = 'primary', 
-            use_container_width=True):
-    st.session_state['authenticated'] = True
-    st.session_state['role'] = 'administrator'
-    st.session_state['first_name'] = 'SysAdmin'
-    st.switch_page('pages/20_Admin_Home.py')
+st.write('')
 
-if st.button('Act as Data Analyst', 
-            type = 'primary', 
-            use_container_width=True):
-    st.session_state['authenticated'] = True
-    st.session_state['role'] = 'Data_analyst'
-    st.session_state['first_name'] = 'Joe'
-    st.switch_page('pages/40_data_A_Home.py')
-    
+col3, col4 = st.columns(2)
 
+with col3:
+    with st.container(border=True):
+        st.write('#### 🔧 System Admin - Jordan')
+        st.write('Manage system resources and configurations')
+        st.write('')
+        if st.button('Act as System Administrator', 
+                    type='primary', 
+                    use_container_width=True,
+                    key='admin'):
+            st.session_state['authenticated'] = True
+            st.session_state['role'] = 'administrator'
+            st.session_state['first_name'] = 'SysAdmin'
+            st.switch_page('pages/20_Admin_Home.py')
 
-
-
+with col4:
+    with st.container(border=True):
+        st.write('#### 📊 Data Analyst - Joe')
+        st.write('Access insights and analytics on course planning')
+        st.write('')
+        if st.button('Act as Data Analyst', 
+                    type='primary', 
+                    use_container_width=True,
+                    key='analyst'):
+            st.session_state['authenticated'] = True
+            st.session_state['role'] = 'Data_analyst'
+            st.session_state['first_name'] = 'Joe'
+            st.switch_page('pages/40_data_A_Home.py')
