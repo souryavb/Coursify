@@ -6,6 +6,9 @@ from modules.nav import SideBarLinks
 st.set_page_config(layout="wide")
 SideBarLinks()
 
+#------------------ Back Button ------------------
+if st.button("← Back"):
+    st.switch_page("Home.py")
 
 st.title("Find Courses")
 
