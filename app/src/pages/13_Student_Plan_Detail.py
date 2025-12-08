@@ -92,10 +92,17 @@ if st.session_state.get('show_delete_confirmation', False):
                             st.session_state['show_delete_confirmation'] = False
                             st.rerun()
                         else:
-                            st.success("✅ Plan deleted!")
+                            # Set success flag for plans page
+                            st.session_state["show_delete_success"] = True
                             st.session_state['show_delete_confirmation'] = False
+                            
+                            # Force plans to reload on plans page
+                            st.session_state["plans_loaded"] = False
+                            st.session_state["plans"] = []
+                            
                             if "selected_plan_id" in st.session_state:
                                 del st.session_state["selected_plan_id"]
+                            
                             st.switch_page("pages/12_Student_Plans.py")
             
             with btn_col2:

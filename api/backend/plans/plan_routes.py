@@ -420,3 +420,36 @@ def delete_course_from_plan(planID: int, courseID: int):
             f"courseID {courseID}: {str(e)}"
         )
         return jsonify({"error": str(e)}), 500
+
+
+# -----------------------------------------------------------
+# GET /p/programs
+# Return all degree programs
+# Example: /p/programs
+# -----------------------------------------------------------
+@plans.route("/programs", methods=["GET"])
+def get_programs():
+    try:
+        current_app.logger.info("Fetching all degree programs")
+        cursor = db.get_db().cursor()
+        
+        query = """
+            SELECT
+                programID,
+                program,
+                type
+            FROM DegreePrograms
+            ORDER BY program;
+        """
+        
+        current_app.logger.debug("Executing get_programs query")
+        cursor.execute(query)
+        rows = cursor.fetchall()
+        cursor.close()
+        
+        current_app.logger.info(f"Successfully retrieved {len(rows)} programs")
+        return jsonify(rows), 200
+        
+    except Error as e:
+        current_app.logger.error(f"Database error in get_programs: {str(e)}")
+        return jsonify({"error": str(e)}), 500
