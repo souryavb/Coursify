@@ -11,6 +11,8 @@ from backend.courses.course_routes import courses
 from backend.plans.plan_routes import plans
 from backend.students.student_routes import students
 from backend.requirements.requirements_routes import requirements
+from backend.dataJordan.DataQualityIssue import data_quality
+from backend.dataJordan.SystemSettings import system_settings_bp
 
 def create_app():
     app = Flask(__name__)
@@ -60,6 +62,8 @@ def create_app():
     app.register_blueprint(courses, url_prefix="/c")
     app.register_blueprint(professors, url_prefix='/prof')
     app.register_blueprint(requirements, url_prefix='/r')
+    app.register_blueprint(data_quality, url_prefix="/dj")
+    app.register_blueprint(system_settings_bp, url_prefix="/sj")
 
 
     # Don't forget to return the app object
