@@ -35,7 +35,7 @@ This repository implements:
 
 ---
 
-## Demo Video:
+## 🎬 Demo Video:
 https://drive.google.com/file/d/1UoR1NpyYtnNcqwl8SAqQHLkRH8LTT4o7/view?usp=sharing
 
 ---
@@ -198,7 +198,7 @@ docker compose restart api
 ---
 
 
-This repository includes:
+## This repository includes:
 
 ✔ ER-to-Relational schema implemented in SQL  
 ✔ All metadata & foreign keys  
