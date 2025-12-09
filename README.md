@@ -35,6 +35,11 @@ This repository implements:
 
 ---
 
+## Demo Video:
+https://drive.google.com/file/d/1UoR1NpyYtnNcqwl8SAqQHLkRH8LTT4o7/view?usp=sharing
+
+---
+
 ## 📁 Repository Structure
 
 ```
@@ -192,7 +197,6 @@ docker compose restart api
 
 ---
 
-## 📄 Phase 2 Requirements — Fully Implemented
 
 This repository includes:
 
